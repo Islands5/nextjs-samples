@@ -10,7 +10,7 @@ const Home: NextPage = () => {
   }
 
   return (
-    <SampleComponent item={ item } />
+    <SampleComponent { ...item } />
   )
 }
 

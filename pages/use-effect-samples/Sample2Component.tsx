@@ -1,17 +1,15 @@
 import { useEffect, useState, useRef } from "react"
 
 type HogeProps = {
-  item: {
-    hoge: string;
-    propFunction: () => void;
-  }
+  hoge: string;
+  propFunction: () => void;
 }
 
 const func1 = () => {
   console.log('func1')
 }
 
-const Sample2Component = ({ item }: HogeProps) => {
+const Sample2Component = (props: HogeProps) => {
 
   const [counter, setCounter] = useState(0)
   const ref = useRef(true);
@@ -38,13 +36,13 @@ const Sample2Component = ({ item }: HogeProps) => {
       return
     }
 
-    item.propFunction()
-  }, [item.propFunction])
+    props.propFunction()
+  }, [props.propFunction])
   
   return (
     <>
       <h1>hoge</h1>
-      { item.hoge }
+      { props.hoge }
       <button onClick={() => setCounter(counter + 1)} >+1</button>
     </>
   )
